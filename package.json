@@ -1,0 +1,10 @@
+{
+  "name": "Hive",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js' --recursive"
+  },
+  "dependencies": {
+    "mocha": "^9.1.2"
+  }
+}

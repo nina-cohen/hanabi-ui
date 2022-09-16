@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hanabi</title>
+    <script src="../scripts/Point.js"></script>
+    <script src="../scripts/MouseManager.js"></script>
+    <script src="../scripts/PaintStackManager.js"></script>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body onload="initialize()" onresize="resizeCanvas(event)">
+
+    <!--<input id="move" />
+    <button onclick="doPostTest()">Send message to server</button>
+    <button onclick="dealCards()">Deal Cards</button>-->
+    <div style="margin: auto; width: 60%; text-align: center;">
+        <input id="hint" onfocus="this.value=''" placeholder="Enter a letter or number"/>
+        <button id="hintButton" onclick="giveHint()">Give Hint</button>
+        <p style="display: inline-block;text-align: center; ">  AI's latest move: <b id='botsMove'></b> </p>
+    </div>
+
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="feedbackDiv">
+        <h2>Input from AI</h2>
+        <div id="feedbackText">
+
+        </div>
+    </div>
+
+    <div id="instructionDiv" class="fullScreenDiv">
+        <div id="scoreText">Final score: X</div>
+        <p>A score of 25 is a perfect score.</p>
+        <div id="instructionTitle">Instructions for Next Game</div>
+        <div id="instruction1" class="instructionDiv">Instruction 1</div>
+        <div id="instruction2" class="instructionDiv">Instruction 2</div>
+        <button id="playAgain" class="customButton" onclick="startNewGame()">Play Again</button>
+    </div>
+
+    <div id="namePrompt" class="fullScreenDiv">
+        <div style="width:600px; margin-left: auto; margin-right: auto;">
+            <h2>Instructions</h2>
+            <ol style="text-align: justify">
+                <li>
+                    If you have not done so, please watch the <a  onclick="launchVideos()" href="javascript:void(0);">video</a> explaining Hanabi and the interface.
+                </li>
+                <br>
+                <li>
+                    Play four games of Hanabi. After finishing each game, you can start the next either by pressing the
+                    "Play Again" button at the end of a game, or by refreshing the page. If your page is refreshed in the
+                    middle of a game, you will be returned to the in-progress game.
+                </li>
+            </ol>
+        </div>
+        <button id="submitName" class="customButton" onclick="submitName()">Start Game</button>
+    </div>
+
+    <div id="videoDiv" class="fullScreenDiv" style="display: none">
+        <h2 id="videoHeader">Video (1/4)</h2>
+        <div id="videoHolder">
+            <video id="hanabiVideo1" controls style="display: none">
+                <source src="../videos/Hanabi_video_1.mp4" type="video/mp4">
+            </video>
+            <video id="hanabiVideo2" controls style="display: none">
+                <source src="../videos/Hanabi_video_2.mp4" type="video/mp4">
+            </video>
+            <video id="hanabiVideo3" controls style="display: none">
+                <source src="../videos/Hanabi_video_draw.mp4" type="video/mp4">
+            </video>
+            <video id="hanabiVideo4Instruction" controls style="display: none">
+                <source src="../videos/Hanabi_video_instructions.mp4" type="video/mp4">
+            </video>
+            <video id="hanabiVideo4PreCorrection" controls style="display: none">
+                <source src="../videos/Hanabi_video_pre_correction.mp4" type="video/mp4">
+            </video>
+            <video id="hanabiVideo4PostCorrection" controls style="display: none">
+                <source src="../videos/Hanabi_video_post_correction.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button id="back" class="customButton" onclick="backVideo()">Back</button>
+        <button id="forward" class="customButton" onclick="advanceVideo()">Next</button>
+        <button id="closeVideos" class="customButton" onclick="closeVideo()">X</button>
+    </div>
+
+    <script>
+        let playerName = "XXXXXX";
+    </script>
+    <script type="text/javascript" src="../scripts/InstructionsTextLibrary.js"></script>
+    <script type="text/javascript" src="../scripts/UI.js"></script>
+    <script type="text/javascript" src="../scripts/Card.js"></script>
+    <script type="text/javascript" src="../scripts/HintBox.js"></script>
+    <script type="text/javascript" src="../scripts/TokenBox.js"></script>
+    <script type="text/javascript" src="../scripts/CardsRemainingBox.js"></script>
+
+</body>
+</html>
